@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  margin-bottom: 10px;
 }
 
 textarea{
@@ -19,6 +20,8 @@ textarea{
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .description{
@@ -58,7 +61,7 @@ textarea{
 }
 
 .saveBtn {
-  height: 40px;
+  margin: 0px;
   width: 50px;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -70,4 +73,9 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.col-2 {
+  padding: left 0px; ;
+
 }

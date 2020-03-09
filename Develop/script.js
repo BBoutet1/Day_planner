@@ -9,9 +9,4 @@ var date = d.getDate();// current day date
 var month = d.getMonth(); // current month
     month = months[month];
 var year = d.getFullYear(); // current year
-
-$(document).ready(function(){
-    /** Current day display **/
-    $("#currentDay").text( day +" "+ date+" "+month+" "+year)
-  
-});
+var hour =d.getHours; //current hours
