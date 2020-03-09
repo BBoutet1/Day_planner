@@ -22,14 +22,16 @@ $(document).ready(function(){
         $(".container").append("<row id=\""+rowI+"\" class=\"row\">");
     }
    
-    /** Generating time, activity(time-bblock) and saving buttons**/
-for (i=9; i<17; i++){
-    var timeId = "time"+i; // 1 hour window label id
-    var activityId = "activity"+i // window block id
-    var btnId = "btn"+i; // window button Id
-    $("#row"+i).append("<label id=\""+timeId+"\" class=\"hour col-2 text-right\">"); //time colum
-    $("#row"+i).append("<textarea id=\""+activityId+"\" class=\"col-9\">"); //block column
-    $("#row"+i).append("<button id=\""+btnId+"\" class=\"saveBtn col-1\">"); //button column
-}
+        /** Generating time, activity(time-bblock) and saving buttons**/
+    for (i=9; i<17; i++){
+        var timeId = "time"+i; // 1 hour window label id
+        var activityId = "activity"+i // window block id
+        var btnId = "btn"+i; // window button Id
+        $("#row"+i).append("<label id=\""+timeId+"\" class=\"hour col-2 text-right\">"); //time colum
+        $("#row"+i).append("<textarea id=\""+activityId+"\" class=\"col-9\">"); //block column
+        $("#row"+i).append("<button id=\""+btnId+"\" class=\"saveBtn col-1\">"); //button column
+    }
+    /** Buttons contents : save icon  **/
+    $(".saveBtn").append("<i class=\"fa fa-save\">");
     
 });
