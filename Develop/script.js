@@ -33,5 +33,19 @@ $(document).ready(function(){
     }
     /** Buttons contents : save icon  **/
     $(".saveBtn").append("<i class=\"fa fa-save\">");
+
+    /** 1 Writting the 1 hour time window in time colums */
+    for (var j=9; j<17; j++){
+        $("#time"+j).text(windowStart(j)+" - "+windowEnd(j));
+        if (j<hour) {
+        $("activity"+j).addClass("past")
+        }
+        else if("activity"+j){
+        $("textarea").addClass("present") 
+        }  
+        else{
+            $("activity"+j).addClass("past") 
+        }
+    }
     
 });
