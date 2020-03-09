@@ -29,7 +29,7 @@ for (i=9; i<17; i++){
     var btnId = "btn"+i; // window button Id
     $("#row"+i).append("<label id=\""+timeId+"\" class=\"hour col-2 text-right\">"); //time colum
     $("#row"+i).append("<textarea id=\""+activityId+"\" class=\"col-9\">"); //block column
-    //$("#row"+i).append("<button id=\""+btnId+"\" class=\"saveBtn col-1\">"); //button column
+    $("#row"+i).append("<button id=\""+btnId+"\" class=\"saveBtn col-1\">"); //button column
 }
     
 });
