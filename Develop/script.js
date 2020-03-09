@@ -10,3 +10,17 @@ var month = d.getMonth(); // current month
     month = months[month];
 var year = d.getFullYear(); // current year
 var hour =d.getHours; //current hours
+
+$(document).ready(function(){
+    /** Current date display **/
+    $("#currentDay").text( day +" "+ date+" "+month+" "+year)
+
+    /** Generating hourly activities rows**/
+    for (var i=9; i<17; i++){
+        var rowI = "row"+i;
+        $(".container").append("<row id=\""+rowI+"\" class=\"row\">");
+    }
+   
+    
+    
+});
