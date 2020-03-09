@@ -47,5 +47,45 @@ $(document).ready(function(){
             $("activity"+j).addClass("past") 
         }
     }
-    
+
+    /** 1 hour window start time */
+    function windowStart(num){
+
+        console.log("numStart "+num)
+        if (num<12)
+        {
+            timeStart = num+":00 AM";  //Morning
+        }
+        else if(num==12)
+        {
+            timeStart = num+":00 PM";  //Midday
+        }
+        else if(num>12)
+        {
+            num=num-12;
+            timeStart = num+":00 PM"; //afternoon
+        }
+        console.log("numEnd "+num)
+        return timeStart;
+    }
+
+    /** 1 hour window end time */
+    function windowEnd(num){
+        num=num+1;
+        if (num<12)
+        {
+            timeEnd = num+":00 AM";  //Morning
+        }
+        else if(num==12)
+        {
+            timeEnd = num+":00 PM";  //Midday
+        }
+        else if(num>12)
+        {
+            num=num-12;
+            timeEnd = num+":00 PM"; //Afternoon
+        }
+
+        return timeEnd;
+    } 
 });
