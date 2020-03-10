@@ -2,9 +2,8 @@
 var months = ["January","February","March","April","May","June","July","August",
 "September","October","November","December"]; // Months array
 var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; // day names array
-var d = new Date(); // date of the day
-var hour =d.getHours(); //current hours
-console.log(hour)
+var hour =moment().hour();
+moment().format();
 
 $(document).ready(function(){
 
