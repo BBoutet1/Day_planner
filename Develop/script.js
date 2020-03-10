@@ -7,9 +7,18 @@ moment().format();
 
 $(document).ready(function(){
 
+
     /** Current date display **/
-    var today = moment().format('LLLL');
-    $("#currentDay").text( today)
+    
+    function timeToday() {
+        var timerInterval = setInterval(function() {
+        
+            var today = moment().format('LL') + " "+moment().format('LTS') ;
+            $("#currentDay").text( today)
+        }, 1000);
+    }
+
+    timeToday()
 
     /** Generating hourly activities rows**/
     for (var i=9; i<17; i++){
