@@ -9,7 +9,7 @@ var date = d.getDate();// current day date
 var month = d.getMonth(); // current month
     month = months[month];
 var year = d.getFullYear(); // current year
-var hour =d.getHours; //current hours
+var hour =d.getHours(); //current hours
 
 $(document).ready(function(){
 
@@ -34,18 +34,10 @@ $(document).ready(function(){
     /** Buttons contents : save icon  **/
     $(".saveBtn").append("<i class=\"fa fa-save\">");
 
-    /** 1 Writting the 1 hour time window in time colums */
+    /** 1 hour window */
     for (var j=9; j<17; j++){
         $("#time"+j).text(windowStart(j)+" - "+windowEnd(j));
-        if (j<hour) {
-        $("activity"+j).addClass("past")
-        }
-        else if("activity"+j){
-        $("textarea").addClass("present") 
-        }  
-        else{
-            $("activity"+j).addClass("past") 
-        }
+
     }
 
     /** 1 hour window start time */
@@ -88,4 +80,19 @@ $(document).ready(function(){
 
         return timeEnd;
     } 
+
+     /** Time code color */
+     for (var j=9; j<17; j++){
+        if (j<hour) {
+
+            $("#activity"+j).addClass("past");
+
+        }
+        else if(j=hour){
+            $("#activity"+j).addClass("present"); 
+        }  
+        else{
+            $("#activity"+j).addClass("past"); 
+        }
+    }
 });
