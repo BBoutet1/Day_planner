@@ -1,9 +1,5 @@
 /*** Variables **/
-var months = ["January","February","March","April","May","June","July","August",
-"September","October","November","December"]; // Months array
-var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; // day names array
 var hour =moment().hour();
-moment().format();
 
 $(document).ready(function(){
 
@@ -17,7 +13,6 @@ $(document).ready(function(){
             $("#currentDay").text( today)
         }, 1000);
     }
-
     timeToday()
 
     /** Generating hourly activities rows**/
@@ -29,13 +24,13 @@ $(document).ready(function(){
         /** Generating time, activity(time-bblock) and saving buttons**/
     for (i=9; i<17; i++){
         var timeId = "time"+i; // 1 hour window label id
-        var activityId = "activity"+i // window block id
-        var btnId = "btn"+i; // window button Id
+        var activityId = "activityB"+i // window block id
+        var btnId = "B"+i; // window button Id
         $("#row"+i).append("<label id=\""+timeId+"\" class=\"hour col-2 text-right\">"); //time colum
         $("#row"+i).append("<textarea id=\""+activityId+"\" class=\"col-9\">"); //block column
         $("#row"+i).append("<button id=\""+btnId+"\" class=\"saveBtn col-1\">"); //button column
-    }
-    /** Buttons contents : save icon  **/
+     }
+    /** Button content : save icon  **/
     $(".saveBtn").append("<i class=\"fa fa-save\">");
 
     /** 1 hour window */
@@ -87,14 +82,42 @@ $(document).ready(function(){
      for (var j=9; j<17; j++){
         if (j<hour) {
 
-            $("#activity"+j).addClass("past");
+            $("#activityB"+j).addClass("past");
 
         }
         else if(j=hour){
-            $("#activity"+j).addClass("present"); 
+            $("#activityB"+j).addClass("present"); 
         }  
         else{
-            $("#activity"+j).addClass("past"); 
+            $("#activityB"+j).addClass("past"); 
         }
     }
+    /** Local storage **/
+    var buttonId ="";
+    $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(e){
+        buttonId = e.target.id;
+        console.log(buttonId)
+        blockText = $("#activity"+buttonId).val().trim(); // Grabbing the timeblock text.
+        SaveBlock()
+        console.log(localStorage.getItem("block"+buttonId))
+
+    });
+
+    /** Save the timeblock text */
+    function SaveBlock(){
+        if (typeof(Storage) !== "undefined") {
+            if($("#activity"+buttonId).text(blockText)!==null){
+                var key = "block"+buttonId;
+                localStorage.setItem(key, blockText);
+                blockText = localStorage.getItem(key);
+                $("#activity"+buttonId).text(blockText);
+                console.log($("#activity"+buttonId).text());
+            }
+          } else {
+            $("#activity"+buttonId).val("Sorry, your browser does not support Web Storage...") ;
+          }
+    }
+
+
+
 });
