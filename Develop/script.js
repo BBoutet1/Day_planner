@@ -33,7 +33,7 @@ $(document).ready(function(){
     /** Button content : save icon  **/
     $(".saveBtn").append("<i class=\"fa fa-save\">");
 
-    /** 1 hour window */
+    /** 1 hour window & block text */
     for (var j=9; j<17; j++){
         $("#time"+j).text(windowStart(j)+" - "+windowEnd(j));
 
@@ -92,29 +92,25 @@ $(document).ready(function(){
             $("#blockB"+j).addClass("future"); 
         }
     }
-    /** Local storage **/
-    var buttonId ="";
-    $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(e){
-        buttonId = e.target.id;
-        console.log(buttonId)
-        blockText = $("#block"+buttonId).val().trim(); // Grabbing the timeblock text.
-        localStorage.getItem("block"+buttonId)
-    });
+    
+    /** Retrieving previously saved block text**/
+   // for (var j=9; j<17; j++){
 
-    /** Save the timeblock text */
-    function SaveBlock(){
-        if (typeof(Storage) !== "undefined") {
-            if($("#activity"+buttonId).text(blockText)!==null){
-                var key = "block"+buttonId;
-                localStorage.setItem(key, blockText);
-                blockText = localStorage.getItem(key);
-                $("#activity"+buttonId).text(blockText);
-                console.log($("#activity"+buttonId).text());
-            }
-          } else {
-            $("#activity"+buttonId).val("Sorry, your browser does not support Web Storage...") ;
-          }
-    }
+
+   // }
+
+
+    /** Local storage **/
+    $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(e){
+        e.preventDefault();
+        var buttonId = e.target.id;
+        var blockText = $("#block"+buttonId).val().trim(); // Grabbing the timeblock text.
+        if (blockText!==""){
+            localStorage.setItem("activity"+buttonId, blockText);
+            console.log(localStorage.getItem("activity"+buttonId));
+        }
+    
+    });
 
 
 
