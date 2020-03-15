@@ -1,5 +1,5 @@
 /*** Variables **/
-var hour =moment().hour();
+var hour = 11; //moment().hour();
 
 $(document).ready(function(){
 
@@ -24,10 +24,10 @@ $(document).ready(function(){
         /** Generating time, activity(time-bblock) and saving buttons**/
     for (i=9; i<17; i++){
         var timeId = "time"+i; // 1 hour window label id
-        var activityId = "activityB"+i // window block id
+        var blockId = "blockB"+i // window block id
         var btnId = "B"+i; // window button Id
         $("#row"+i).append("<label id=\""+timeId+"\" class=\"hour col-2 text-right\">"); //time colum
-        $("#row"+i).append("<textarea id=\""+activityId+"\" class=\"col-9\">"); //block column
+        $("#row"+i).append("<textarea id=\""+blockId+"\" class=\"col-9\">"); //block column
         $("#row"+i).append("<button id=\""+btnId+"\" class=\"saveBtn col-1\">"); //button column
      }
     /** Button content : save icon  **/
@@ -82,14 +82,14 @@ $(document).ready(function(){
      for (var j=9; j<17; j++){
         if (j<hour) {
 
-            $("#activityB"+j).addClass("past");
+            $("#blockB"+j).addClass("past");
 
         }
-        else if(j=hour){
-            $("#activityB"+j).addClass("present"); 
+        else if(j==hour){
+            $("#blockB"+j).addClass("present"); 
         }  
         else{
-            $("#activityB"+j).addClass("past"); 
+            $("#blockB"+j).addClass("future"); 
         }
     }
     /** Local storage **/
