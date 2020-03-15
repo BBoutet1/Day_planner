@@ -98,7 +98,7 @@ $(document).ready(function(){
     /** Local storage **/
        $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(event){
         var buttonId = event.target.id; // Getting the clicked button id
-        if (buttonId!=="") { // No local storage if the buttton id is not stored (fix 'trim' of undefined error)
+        if (buttonId!=="") { // No local storage if the buttton id is not stored
             // Grabbing the timeblock
             var blockText = $("#block"+buttonId).val().trim(); // e.g 1st textarea content value id is "blockB1"
             if (blockText!==""){

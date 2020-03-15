@@ -22,22 +22,12 @@ textarea{
   border-radius: 0;
   border-bottom: 10px solid black;
   padding-top: 30px;
-  padding-bottom: 30px;
 }
-
-/* .description{
-  white-space: pre-wrap;
-} */
-
-/* .time-block{
-  text-align: center;
-  border-radius: 15px;
-} */
 
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .hour {
@@ -62,6 +52,7 @@ textarea{
   color: black;
 }
 
+
 .saveBtn {
   margin: 0px;
   width: 50px;
@@ -82,4 +73,16 @@ textarea{
   padding-left:  0px;
   margin-bottom: 1px;
 
+}
+/* Lengend row */
+.legend{
+  float: right;
+  height: 30px;
+  width: 100%;
+}
+/* Legend column */
+div p{ 
+  line-height: 30px;
+ margin-left: 10px;
+ margin-right: 10px;
 }
