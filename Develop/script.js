@@ -97,10 +97,8 @@ $(document).ready(function(){
     $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(e){
         buttonId = e.target.id;
         console.log(buttonId)
-        blockText = $("#activity"+buttonId).val().trim(); // Grabbing the timeblock text.
-        SaveBlock()
-        console.log(localStorage.getItem("block"+buttonId))
-
+        blockText = $("#block"+buttonId).val().trim(); // Grabbing the timeblock text.
+        localStorage.getItem("block"+buttonId)
     });
 
     /** Save the timeblock text */
