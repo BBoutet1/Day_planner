@@ -4,7 +4,7 @@ var hour = 11; //moment().hour();
 /** Current date display **/
 
 function timeToday() {
-    var timerInterval = setInterval(function() {
+    setInterval(function() {
     
         var today = moment().format('LL') + " "+moment().format('LTS') ;
         $("#currentDay").text( today)
@@ -96,21 +96,20 @@ for (var j=9; j<17; j++){
 
 $(document).ready(function(){
     /** Local storage **/
-    $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(e){
-        e.preventDefault();
-        var buttonId = e.target.id; // Clicked button
-        // Grabbing the timeblock 
-        var blockText = $("#block"+buttonId).val().trim(); // e.g 1st textarea content value id is "blockB1"
-        if (blockText!==""){
-            //store input if not "null"
-            localStorage.setItem("activity"+buttonId, blockText);
-        }
-        else{
-             //clear storage for "null" input
-            localStorage.removeItem("activity"+buttonId, blockText) 
-        }
+       $( "#B9, #B10, #B11, #B12, #B13, #B14, #B15, #B16").click(function(event){
+        var buttonId = event.target.id; // Getting the clicked button id
+        if (buttonId!=="") { // No local storage if the buttton id is not stored (fix 'trim' of undefined error)
+            // Grabbing the timeblock
+            var blockText = $("#block"+buttonId).val().trim(); // e.g 1st textarea content value id is "blockB1"
+            if (blockText!==""){
+                //store input if not "null"
+                localStorage.setItem("activity"+buttonId, blockText);
+            }
+            else{
+                 //clear storage for "null" input
+                localStorage.removeItem("activity"+buttonId, blockText) 
+            }
+        }  
+ 
     });
-
-
-
 });
