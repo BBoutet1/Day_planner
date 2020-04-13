@@ -1,109 +1,173 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  min-width: 365px;
-  padding-bottom: 30px;
+* {
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    min-width: 320px;
+    padding-bottom: 30px;
+    overflow: auto;
+}
 
-textarea{
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
+textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #000000;
+    border-left: 1px solid black;
 }
 
 .jumbotron {
-  text-align: center;
-  background-color: transparent;
-  color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
-  padding-top: 30px;
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+    border-bottom: 10px solid black;
+    padding: 5px;
 }
 
 .row {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;
+    white-space: pre-wrap;
+    height: 80px;
+    border-top: 1px solid white;
+    margin: auto;
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-  background-color: rgb(248, 233, 214);
+    background-color: #ffffff;
+    color: #000000;
+    border-top: 1px dashed #000000;
+    background-color: rgb(248, 233, 214);
 }
 
 .past {
-  background-color: #d3d3d3;
-  color: black;
+    background-color: #d3d3d3;
+    color: black;
 }
 
 .present {
-  background-color: #ff6961;
-  color: black;
+    background-color: #ff6961;
+    color: black;
 }
 
 .future {
-  background-color: #77dd77;
-  color: black;
+    background-color: #77dd77;
+    color: black;
 }
 
-
 .saveBtn {
-  margin: 0px;
-  width: 50px;
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
+    margin: 0px;
+    border-left: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #06AED5;
+    color: white;
 }
 
 .saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
+    font-size: 20px;
+    transition: all .3s ease-in-out;
 }
 
 .col-2 {
-  padding-top: 8px;
-  padding-left:  0px;
-  margin-bottom: 1px;
+    padding: 4px;
+    height: 79px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
+.col-9 {
+    padding: 4px;
 }
+
+
 /* Lengend row */
-.legend{
-  float: right;
-  height: 30px;
-  width: 100%;
+
+.legend {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
+
+
 /* Legend column */
-div p{ 
-  line-height: 30px;
-  width: 80px;
-  margin-right: 50px;
+
+div p {
+    line-height: 30px;
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 3px;
+    padding-right: 3px;
 }
+
+@media screen and (max-width: 1195px) {
+    .col-2 {
+        max-width: 115px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .col-2 {
+        max-width: 60px;
+    }
+}
+
 
 /** small screen **/
-@media screen and (max-width: 420px) {
-  textarea.col-9 {
-    max-width: 72%;
-  }
-  button.saveBtn{
-    max-width: 14%;;
-  }
-  label.hour.col-2.text-right {
-    max-width: 14%;
-    padding-right: 0px;
-  }
-  div p{ 
-    line-height: 30px;
-    width: 80px;
-    margin-right:3%;
-    margin-left: 3%;
-  }
+
+@media screen and (max-width: 520px) {
+    * {
+        margin: 0px;
+    }
+    .jumbotron {
+        margin-bottom: 10px;
+    }
+    #currentDay.lead {
+        margin-bottom: 5px;
+    }
+    .legend {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: block;
+        margin: auto;
+    }
+    .row {
+        width: 100%;
+    }
+    textarea.col-9 {
+        max-width: 72%;
+    }
+    button.saveBtn {
+        width: auto;
+        min-width: 30px;
+    }
+    div p {
+        /* width: auto; */
+        margin: 0.3%;
+        margin-left: 0.3%;
+        padding: 2px;
+        font-size: 15px;
+    }
+    p.past {
+        margin-left: 0px;
+    }
+    p.future {
+        margin-right: 0px;
+    }
+    .col-1 {
+        display: flex;
+        justify-content: center;
+        float: right;
+    }
 }
